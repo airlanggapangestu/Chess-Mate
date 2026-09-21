@@ -1,0 +1,703 @@
+/* ============================================
+   GLOBAL
+============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
+  background: #111315;
+  color: #f1f1f1;
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ============================================
+   HOME LAYOUT
+============================================ */
+.home-layout {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 300px 1fr 340px;
+  overflow: hidden;
+}
+
+/* ============================================
+   SIDEBAR
+============================================ */
+.home-sidebar {
+  background: #15181b;
+  border-right: 1px solid #292d31;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Logo */
+.home-logo {
+  height: 95px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 25px;
+  font-size: 27px;
+  font-weight: 700;
+  flex-shrink: 0;
+  border-bottom: 1px solid #292d31;
+}
+
+.home-logo-piece {
+  color: #9bd36a;
+  font-size: 43px;
+  line-height: 1;
+}
+
+/* Mode section */
+.home-mode-section {
+  flex: 1;
+  padding: 22px 14px;
+  overflow-y: auto;
+}
+
+.home-mode-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7d858b;
+  letter-spacing: 1.5px;
+  padding: 0 12px;
+  margin-bottom: 12px;
+}
+
+.home-mode-list-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.home-mode-item {
+  width: 100%;
+  min-height: 68px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  color: #d5d8da;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+}
+
+.home-mode-item:hover:not(:disabled) {
+  background: #1e2428;
+  border-color: #2f3539;
+}
+
+.home-mode-item:active:not(:disabled) {
+  background: #232a2e;
+}
+
+.home-mode-item:disabled,
+.home-mode-item.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.home-mode-item-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  background: #1e2428;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+
+.home-mode-item:hover:not(:disabled) .home-mode-item-icon {
+  background: #232a2e;
+}
+
+.home-mode-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-mode-item-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-mode-item-desc {
+  font-size: 11px;
+  color: #858b90;
+  line-height: 1.35;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.home-mode-item-badge {
+  font-size: 9px;
+  padding: 2px 6px;
+  background: #3a3f43;
+  color: #b0b4b7;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+
+/* Profile */
+.home-profile {
+  padding: 18px;
+  border-top: 1px solid #292d31;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.home-avatar {
+  width: 45px;
+  height: 45px;
+  background: #34383d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
+  color: #d0d0d0;
+  flex-shrink: 0;
+}
+
+.home-profile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.home-profile-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.home-online {
+  color: #7d858b;
+  font-size: 12px;
+}
+
+.home-online::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: #79c85a;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.home-settings {
+  font-size: 21px;
+  color: #a5aaae;
+  cursor: pointer;
+}
+
+/* ============================================
+   CENTER
+============================================ */
+.home-center {
+  background: #111315;
+  padding: 38px 45px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-welcome {
+  width: min(690px, 100%);
+  margin-bottom: 24px;
+}
+
+.home-welcome-small {
+  color: #8dce5e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+
+.home-welcome h1 {
+  font-size: 30px;
+  margin: 0 0 6px 0;
+}
+
+.home-welcome p {
+  color: #858b90;
+  font-size: 14px;
+  margin: 0;
+}
+
+.home-game {
+  width: min(690px, 100%);
+}
+
+.home-player {
+  height: 65px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-player-avatar {
+  width: 43px;
+  height: 43px;
+  background: #34383d;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.home-player-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.home-player-name {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.home-rating {
+  color: #858b90;
+  font-size: 12px;
+}
+
+.home-clock {
+  margin-left: auto;
+  background: #1c2023;
+  border: 1px solid #30353a;
+  padding: 11px 18px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Board Preview */
+.home-board-preview {
+  width: 100%;
+  max-width: 690px;
+  aspect-ratio: 1 / 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.4);
+}
+
+.home-board-preview > div {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.home-board-preview svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ============================================
+   RIGHT PANEL
+============================================ */
+.home-right-panel {
+  background: #15181b;
+  border-left: 1px solid #292d31;
+  padding: 32px 26px;
+  overflow-y: auto;
+}
+
+.home-right-section {
+  margin-bottom: 32px;
+}
+
+.home-right-section:last-child {
+  margin-bottom: 0;
+}
+
+.home-right-section-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7d858b;
+  letter-spacing: 1.5px;
+  margin-bottom: 14px;
+}
+
+/* Theme buttons */
+.home-theme-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.home-theme-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #3a3f43;
+  cursor: pointer;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  overflow: hidden;
+  transition: 0.15s;
+}
+
+.home-theme-button span {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.home-theme-button:hover {
+  border-color: #5a5f63;
+  transform: scale(1.05);
+}
+
+.home-theme-button.active {
+  border-color: #83c955;
+  box-shadow: 0 0 0 2px rgba(131, 201, 85, 0.3);
+}
+
+/* Tips */
+.home-tips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-tips li {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #a5aaae;
+}
+
+.home-tip-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+  width: 22px;
+  text-align: center;
+}
+
+.home-tips b {
+  color: #d5d8da;
+  font-weight: 600;
+}
+
+/* About */
+.home-about-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #858b90;
+  margin: 0;
+}
+
+/* ============================================
+   ANALYSIS GAME
+============================================ */
+.chess-game {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.chess-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.chess-header > div:not(.engine-status) {
+  flex: 1;
+}
+
+.chess-header h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.chess-header p {
+  margin: 4px 0 0 0;
+  color: #9a9a9a;
+  font-size: 14px;
+}
+
+.btn-back {
+  background: transparent;
+  color: #e8e8e8;
+  border: 1px solid #3a3835;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+
+.btn-back:hover {
+  background: #3a3835;
+}
+
+.engine-status {
+  font-size: 12px;
+  color: #9a9a9a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.status-online {
+  color: #7fa650;
+}
+
+.status-loading {
+  color: #d4a017;
+}
+
+.chess-board-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.chess-controls {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.chess-controls button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid #3a3835;
+  background: #302e2b;
+  color: #e8e8e8;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: background 0.15s;
+}
+
+.chess-controls button:hover {
+  background: #3a3835;
+}
+
+/* ============================================
+   RESPONSIVE
+============================================ */
+
+/* Tablet — sidebar sempit, right panel lebih sempit */
+@media (max-width: 1150px) {
+  .home-layout {
+    grid-template-columns: 240px 1fr 300px;
+  }
+
+  .home-mode-item-desc {
+    display: none;
+  }
+
+  .home-mode-item {
+    min-height: 56px;
+    padding: 10px 12px;
+  }
+
+  .home-center {
+    padding: 28px 24px;
+  }
+
+  .home-right-panel {
+    padding: 24px 20px;
+  }
+}
+
+/* Tablet kecil — sembunyikan right panel, expand center */
+@media (max-width: 950px) {
+  .home-layout {
+    grid-template-columns: 240px 1fr;
+  }
+
+  .home-right-panel {
+    display: none;
+  }
+
+  .home-center {
+    padding: 28px 30px;
+  }
+}
+
+/* Mobile — stack vertical */
+@media (max-width: 700px) {
+  body {
+    overflow: auto;
+  }
+
+  .home-layout {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .home-sidebar {
+    border-right: none;
+    border-bottom: 1px solid #292d31;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 10px;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .home-logo {
+    height: auto;
+    padding: 8px 12px;
+    border-bottom: none;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .home-logo-piece {
+    font-size: 30px;
+  }
+
+  .home-mode-section {
+    display: flex;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .home-mode-section-title {
+    display: none;
+  }
+
+  .home-mode-list-sidebar {
+    flex-direction: row;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .home-mode-item {
+    min-height: 46px;
+    padding: 8px 12px;
+    min-width: 46px;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .home-mode-item-icon {
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    background: transparent;
+  }
+
+  .home-mode-item-content {
+    display: none;
+  }
+
+  .home-mode-item-badge {
+    display: none;
+  }
+
+  .home-profile {
+    display: none;
+  }
+
+  .home-center {
+    padding: 20px 16px;
+  }
+
+  .home-welcome h1 {
+    font-size: 24px;
+  }
+
+  .chess-game {
+    padding: 16px;
+  }
+
+  .chess-header {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-logo-text {
+    display: none;
+  }
+
+  .home-clock {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .home-player-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+}
