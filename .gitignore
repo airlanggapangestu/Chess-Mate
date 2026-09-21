@@ -68,3 +68,6 @@ Desktop.ini
 .cache/
 .temp/
 .tmp/
+
+# Stockfish — auto-copied from node_modules at build time
+public/stockfish/
