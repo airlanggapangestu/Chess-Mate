@@ -2,15 +2,15 @@
 
 A modern chess web application built with React, featuring engine analysis, tactical puzzles, and local multiplayer — all in a clean, Material Design 3-inspired interface.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://chess-mate.vercel.app)
+[![Deploy with Vercel](https://vercel.com/button)](https://chess-mate-taupe.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/airlanggapangestu/Chess-Mate)
-[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=vercel)](https://chess-mate.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=vercel)](https://chess-mate-taupe.vercel.app/)
 
 ---
 
 ## Live Demo
 
-**[chess-mate.vercel.app](https://chess-mate.vercel.app)**
+**[chess-mate.vercel.app](https://chess-mate-taupe.vercel.app/)**
 
 Try it directly in your browser — no installation needed.
 
@@ -86,7 +86,7 @@ Tactical training with built-in puzzles.
 
 ### Try Online
 
-**[Open Live Demo](https://chess-mate.vercel.app)**
+**[Open Live Demo](https://chess-mate-taupe.vercel.app/)**
 
 ### Run Locally
 
