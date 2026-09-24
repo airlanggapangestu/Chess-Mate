@@ -1,16 +1,92 @@
-# React + Vite
+# ChessMate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern chess web application built with React, featuring engine analysis, tactical puzzles, and local multiplayer — all in a clean, Material Design 3-inspired interface.
 
-Currently, two official plugins are available:
+![ChessMate Preview](./src/assets/screen.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Analysis Mode
+Play freely from both sides with real-time engine insights.
+- **Arrow hints** — Top 2 best moves shown as colored arrows (green = best, blue = alternative)
+- **Move classification** — Every move auto-tagged with a rating:
+  - ✨ **Brilliant** — Sacrifice with best outcome
+  - 👍 **Great** — Best move, second-best far behind
+  - ⭐ **Best** — Matches engine's top choice
+  - ✓ **Excellent** — Centipawn loss ≤ 20
+  - ✓ **Good** — Centipawn loss ≤ 50
+  - 📖 **Book** — Known opening move
+  - ⚠ **Inaccuracy** — Centipawn loss ≤ 120
+  - ⚠ **Mistake** — Centipawn loss ≤ 300
+  - ✗ **Blunder** — Centipawn loss > 300
+- **Opening detection** — 70+ known openings (Ruy Lopez, Fried Liver, Sicilian, etc.) with ECO codes
+- **Full navigation** — Jump to start, step back/forward, jump to end
+- **Keyboard shortcuts** — `←` `→` `Home` `End` `F` (flip board)
+- **Interactive move list** — Click any move to jump to that position
 
-## Expanding the ESLint configuration
+### Play vs Engine
+Challenge Stockfish at 4 difficulty levels.
+- **Levels**: Easy (~800 Elo) · Medium (~1500) · Hard (~2000) · Expert (~2400)
+- **Play as**: White · Black · Random
+- **Time control**: Unlimited · 5 min · 10 min · 15|10
+- **Auto engine move** — Stockfish responds to your move automatically
+- **Board flip** — Auto-flips based on your color
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 2 Player
+Local match with chess clock.
+- **8 time presets** — Bullet, Blitz, Rapid, Classical
+- **Fischer increment** — Time added after each move
+- **Live clock** — Green / orange / red warnings as time runs low
+- **Resign** with confirmation dialog
+- **Draw offer** with accept/decline banner
+- **Timeout detection** — Auto game-over when clock hits 0
+
+### Puzzle
+Tactical training with built-in puzzles.
+- 7 puzzles with ratings (800–1200)
+- **Hint** — Highlights the starting square
+- **Show solution** — Auto-plays the winning line
+- **Shake animation** on wrong move
+- **Celebration overlay** when solved
+
+### Settings
+- **9 board themes** with live preview
+- Theme saved to `localStorage`
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Framework** | React 19 + Vite |
+| **Styling** | Tailwind CSS v4 (`@theme` tokens) |
+| **Icons** | Material Symbols + Lucide React |
+| **Chess Logic** | chess.js |
+| **Board UI** | react-chessboard v5 |
+| **Engine** | Stockfish 18 (Web Worker) |
+| **Sound** | Web Audio API (synthesized) |
+| **Storage** | localStorage |
+
+---
+
+## Getting Started
+
+### Prerequisites
+- Node.js 20+
+- npm 10+
+
+### Installation
+
+```bash
+# Clone the repo
+git clone https://github.com/airlanggapangestu/Chess-Mate.git
+cd Chess-Mate
+
+# Install dependencies (also downloads Stockfish WASM automatically)
+npm install
+
+# Run dev server
+npm run dev
