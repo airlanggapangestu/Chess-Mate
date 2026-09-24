@@ -2,7 +2,17 @@
 
 A modern chess web application built with React, featuring engine analysis, tactical puzzles, and local multiplayer — all in a clean, Material Design 3-inspired interface.
 
-![ChessMate Preview](./src/assets/screen.png)
+[![Deploy with Vercel](https://vercel.com/button)](https://chess-mate.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/airlanggapangestu/Chess-Mate)
+[![Live Demo](https://img.shields.io/badge/Live-Demo-success?logo=vercel)](https://chess-mate.vercel.app)
+
+---
+
+## Live Demo
+
+**[chess-mate.vercel.app](https://chess-mate.vercel.app)**
+
+Try it directly in your browser — no installation needed.
 
 ---
 
@@ -12,15 +22,15 @@ A modern chess web application built with React, featuring engine analysis, tact
 Play freely from both sides with real-time engine insights.
 - **Arrow hints** — Top 2 best moves shown as colored arrows (green = best, blue = alternative)
 - **Move classification** — Every move auto-tagged with a rating:
-  - ✨ **Brilliant** — Sacrifice with best outcome
-  - 👍 **Great** — Best move, second-best far behind
-  - ⭐ **Best** — Matches engine's top choice
-  - ✓ **Excellent** — Centipawn loss ≤ 20
-  - ✓ **Good** — Centipawn loss ≤ 50
-  - 📖 **Book** — Known opening move
-  - ⚠ **Inaccuracy** — Centipawn loss ≤ 120
-  - ⚠ **Mistake** — Centipawn loss ≤ 300
-  - ✗ **Blunder** — Centipawn loss > 300
+  -  **Brilliant** — Sacrifice with best outcome
+  -  **Great** — Best move, second-best far behind
+  -  **Best** — Matches engine's top choice
+  -  **Excellent** — Centipawn loss ≤ 20
+  -  **Good** — Centipawn loss ≤ 50
+  -  **Book** — Known opening move
+  -  **Inaccuracy** — Centipawn loss ≤ 120
+  -  **Mistake** — Centipawn loss ≤ 300
+  -  **Blunder** — Centipawn loss > 300
 - **Opening detection** — 70+ known openings (Ruy Lopez, Fried Liver, Sicilian, etc.) with ECO codes
 - **Full navigation** — Jump to start, step back/forward, jump to end
 - **Keyboard shortcuts** — `←` `→` `Home` `End` `F` (flip board)
@@ -32,7 +42,6 @@ Challenge Stockfish at 4 difficulty levels.
 - **Play as**: White · Black · Random
 - **Time control**: Unlimited · 5 min · 10 min · 15|10
 - **Auto engine move** — Stockfish responds to your move automatically
-- **Board flip** — Auto-flips based on your color
 
 ### 2 Player
 Local match with chess clock.
@@ -69,16 +78,17 @@ Tactical training with built-in puzzles.
 | **Engine** | Stockfish 18 (Web Worker) |
 | **Sound** | Web Audio API (synthesized) |
 | **Storage** | localStorage |
+| **Hosting** | Vercel |
 
 ---
 
-## Getting Started
+## Quick Start
 
-### Prerequisites
-- Node.js 20+
-- npm 10+
+### Try Online
 
-### Installation
+**[Open Live Demo](https://chess-mate.vercel.app)**
+
+### Run Locally
 
 ```bash
 # Clone the repo
